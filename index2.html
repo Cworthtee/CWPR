@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños #16</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="sobre" id="sobre"></div>
+    <div class="apertura" id="tapa"></div>
+    <div class="carta" id="letter">
+        <p id="parrafo"></p
+        <img src="imagen1.jpg" alt="">
+    </div>
+    <button class="open" onclick="abrirSobre()">Abre el sobre</button>
+    <audio id="music" src="cinderella.mp3"></audio>
+
+    <script> 
+        let tapa = document.getElementById("tapa");
+        let sobre = document.getElementById("sobre");
+        let letter = document.getElementById("letter");
+        let music = document.getElementById("music")
+
+        function abrirSobre() {
+            tapa.style.position = "relative";
+            tapa.style.borderTop = "4px solid hsl(310, 72%, 48%)";
+            tapa.style.transform = "translateY(-7.2em) scaleY(-1)";
+            tapa.style.zIndex = "-1";
+
+            sobre.style.borderTopLeftRadius = "2.5px";
+            sobre.style.borderTopRightRadius = "2.5px";
+
+            letter.style.animation = "salir 5s linear forwards, bajar 10s linear 5s forwards";
+
+            sobre.style.animation = "ocultarSobre 7s linear 4s forwards";
+            tapa.style.animation = "ocultarSobre 7s linear 4s forwards";
+            
+            music.play();
+            }
+
+        let texto = "Feliz cumpleaños Mariangel! 🎉🎂. Quiero que sepas que eres una de las mejores cosas que me ha pasado en la vida y que siempre estaré ahí para tí como un hermano y como un amigo para cualquier cosa que necesites.  Deseo que pases un lindo cumple y que sepas que, aunque no lo parezca o no lo mencione mucho, te quiero con la vida. Que Dios siempre esté contigo en todos tus caminos, te permita cumplir todas tus metas y te bendiga siempre, amén.";
+        let parrafo = document.getElementById("parrafo");
+
+        let i = 0;
+
+        function escribir() {
+            if (i < texto.length) {
+                parrafo.textContent += texto[i];
+                i++;
+                setTimeout(escribir, 100);
+        }
+    }
+        setTimeout(escribir, 15000);
+    </script>
+</body>
+</html>
