@@ -11,16 +11,17 @@
     <div class="apertura" id="tapa"></div>
     <div class="carta" id="letter">
         <p id="parrafo"></p
-        <img src="imagen1.jpg" alt="">
+        <div class="image"></div>
     </div>
-    <button class="open" onclick="abrirSobre()">Abre el sobre</button>
+    <button class="open" id="abierto" onclick="abrirSobre()">Abre el sobre</button>
     <audio id="music" src="cinderella.mp3"></audio>
 
     <script> 
         let tapa = document.getElementById("tapa");
         let sobre = document.getElementById("sobre");
         let letter = document.getElementById("letter");
-        let music = document.getElementById("music")
+        let music = document.getElementById("music");
+        let abierto = document.getElementById("abierto");
 
         function abrirSobre() {
             tapa.style.position = "relative";
@@ -35,6 +36,8 @@
 
             sobre.style.animation = "ocultarSobre 7s linear 4s forwards";
             tapa.style.animation = "ocultarSobre 7s linear 4s forwards";
+            
+            abierto.style.animation = "ocultarSobre 7s linear 4s forwards";
             
             music.play();
             }
